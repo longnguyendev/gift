@@ -4,7 +4,7 @@ for (let i = 1; i <= 11; i++) {
   item.setAttribute("src", `./public/images/img${i}.jpeg`);
   item.setAttribute("alt", "img");
   item.classList.add("child", `img${i}`);
-  item.style.animationName = "example";
+  item.style.animationName = "show";
   item.style.animationDuration = `${Math.random() * 4 + 2}s`;
   root.append(item);
 }
