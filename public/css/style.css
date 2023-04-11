@@ -12,7 +12,62 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
+.hearts {
+  position: absolute;
+  inset: 0;
+}
+.heart {
+  position: absolute;
+  width: 24px; /* pathのサイズ */
+  height: 24px; /* pathのサイズ */
+  background: rgba(255, 0, 0, 0.3); /* 色 */
+  clip-path: path(
+    "M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
+  );
+  animation: moveX 4s linear infinite, moveY 0.5s ease-in-out alternate infinite;
+  bottom: -24px;
+  z-index: 999;
+}
+
+.heart-1 {
+  left: 10%;
+  animation-delay: 1s;
+}
+.heart-2 {
+  left: 20%;
+  animation-delay: 2.2s;
+}
+.heart-3 {
+  left: 30%;
+  animation-delay: 0.5s;
+}
+.heart-4 {
+  left: 40%;
+  animation-delay: 1s;
+}
+.heart-5 {
+  left: 50%;
+  animation-delay: -1.5s;
+}
+.heart-6 {
+  left: 60%;
+  animation-delay: 0.2s;
+}
+.heart-7 {
+  left: 70%;
+  animation-delay: -1.7s;
+}
+.heart-8 {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+.heart-9 {
+  left: 90%;
+  animation-delay: -2.2s;
+}
+
 .child {
   position: absolute;
   max-height: 30%;
@@ -35,8 +90,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  /* animation-name: example;
-  animation-duration: 2s; */
   line-height: 1vw;
   z-index: 999;
 }
@@ -52,7 +105,7 @@ h5 {
   font-size: 5.5vw;
   text-shadow: 5px 5px 15px #000;
 }
-@keyframes example {
+@keyframes show {
   from {
     scale: 0.8;
     opacity: 0;
@@ -62,11 +115,38 @@ h5 {
     opacity: 1;
   }
 }
+@keyframes moveX {
+  from {
+    bottom: -24px;
+  }
+  to {
+    bottom: 100%;
+  }
+}
+@keyframes moveY {
+  from {
+    transform: translateX(10px);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
 @media only screen and (max-width: 768px) {
   .root {
     width: 100%;
     height: 300px;
-    overflow: hidden;
+  }
+  .circle {
+    width: 20px;
+    height: 20px;
+  }
+  @keyframes moveY {
+    from {
+      transform: translateX(5px) scale(0.5);
+    }
+    to {
+      transform: translateX(-5px) scale(0.5);
+    }
   }
 }
 @media only screen and (max-width: 1200px) {
