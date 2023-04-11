@@ -1,13 +1,17 @@
 body {
   background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
   overflow: hidden;
 }
 .root {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .child {
   position: absolute;
@@ -26,24 +30,27 @@ body {
   z-index: 99;
 }
 .cap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  position: absolute;
-  animation-name: example;
-  animation-duration: 2s;
-  font-size: 4.5rem;
-  color: rgb(190, 6, 6);
+  /* animation-name: example;
+  animation-duration: 2s; */
+  line-height: 1vw;
   z-index: 999;
-  line-height: 30px;
 }
 h3 {
-  color: coral;
+  color: #ffa62b;
   font-family: "Ms Madi", cursive;
-  font-size: 8rem;
+  font-size: 10vw;
+  text-shadow: 5px 5px 15px #000;
 }
-p {
+h5 {
+  color: #db222a;
   font-family: "Qwitcher Grypen", cursive;
-  font-weight: bold;
-  font-size: 7rem;
+  font-size: 5.5vw;
+  text-shadow: 5px 5px 15px #000;
 }
 @keyframes example {
   from {
@@ -53,5 +60,19 @@ p {
   to {
     scale: 1;
     opacity: 1;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .root {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .child {
+    position: absolute;
+    max-height: 20%;
+    border-radius: 4px;
   }
 }
